@@ -1,7 +1,7 @@
 class DataImporter
   attr_reader :data, :data_file
 
-  def initialize(data_file)
+  def initialize(data_file=nil)
     @data_file = data_file
     @data      = IO.readlines(data_path)
   end
