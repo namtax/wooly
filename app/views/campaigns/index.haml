@@ -1,0 +1,5 @@
+%h1 Campaigns
+.campaigns
+- @campaigns.each do |c|
+  %p
+    %a(href="/#{URI.encode(c)}")= c

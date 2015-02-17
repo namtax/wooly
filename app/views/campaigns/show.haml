@@ -1,0 +1,13 @@
+%h1= @campaign.name
+.row
+  .col-md-2.head
+    %h2 Candidate
+  .col-md-10.head
+    %h2 Score
+  - @campaign.candidates.each do |c|
+    .col-md-2
+      %p= c.first
+    .col-md-10
+      %p= c.last
+.missed
+  %h2= "Messages sent in but not counted = (#{@campaign.invalid_votes.count})"

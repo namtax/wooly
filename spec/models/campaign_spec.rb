@@ -1,5 +1,6 @@
 describe Campaign do
   let(:camp) { Campaign.new('expected') }
+  before     { Campaign.instance_variable_set(:@all, nil) }
 
   describe '.all' do
     let!(:vote1) { create_vote }
