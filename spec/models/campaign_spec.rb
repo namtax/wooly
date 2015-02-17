@@ -18,10 +18,10 @@ describe Campaign do
 
   describe '#candidates' do
     let!(:vote1) { create_vote }
-    let!(:vote2) { create_vote }
     let!(:vote3) { create_vote(validity:  'post') }
     let!(:vote4) { create_vote(choice: 'danny') }
-    it { expect(camp.candidates).to eq({ 'bobby' => 2, 'danny' => 1}) }
+    let!(:vote5) { create_vote(choice: 'danny') }
+    it { expect(camp.candidates).to eql([["danny", 2], ["bobby", 1]]) }
   end
 
   describe '#invalid_votes' do

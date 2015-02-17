@@ -27,7 +27,7 @@ class Campaign
   def fetch_candidates
     choices.inject(Hash.new(0)) do |hsh, v|
       hsh[v] += 1 ; hsh
-    end
+    end.sort_by(&:last).reverse
   end
 
   def choices
