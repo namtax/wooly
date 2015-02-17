@@ -22,6 +22,10 @@ class Campaign
     @invalid_votes ||= Vote.where(campaign: name).not_counted
   end
 
+  def exists?
+    all_votes.count > 0
+  end
+
   private
 
   def fetch_candidates
@@ -32,5 +36,9 @@ class Campaign
 
   def choices
     votes.to_a.map(&:choice)
+  end
+
+  def all_votes
+    @all_votes ||= Vote.where(campaign: name)
   end
 end

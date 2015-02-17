@@ -5,5 +5,6 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.new(params[:campaign])
+    fourohfour unless @campaign.exists?
   end
 end
